@@ -30,6 +30,10 @@ img {
   padding-right: 1rem;
 }
 
+fieldset {
+  border: none;
+}
+
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -197,16 +201,15 @@ label {
 }
 input {
   padding: 8px;
-  border: 0.8px solid #ccc;
+  border: 1px solid #ccc;
   outline: none;
 }
 .text-control {
   margin: 0;
-  padding: 8px;
+  padding: 16px 20px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
+  font-size: 18px;
 }
 .formData[data-error]::after {
   content: attr(data-error);
@@ -231,7 +234,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-.formData.form-radio {
+.formData .form-radio {
   display: flex;
   flex-wrap: wrap;
   gap: 7px 24px;
@@ -280,7 +283,7 @@ input {
   background: #279e7a;
 }
 .checkbox2-label .checkbox-icon {
-  border-radius: 4px;
+  border-radius: 6px;
   border: 0;
   background: #c4c4c4;
 }
@@ -296,6 +299,8 @@ input {
   margin: 0 0 6px 1px;
 }
 .close {
+  background: none;
+  border: none;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -308,6 +313,7 @@ input {
 .close:before,
 .close:after {
   position: absolute;
+  top:0;
   left: 15px;
   content: " ";
   height: 33px;
