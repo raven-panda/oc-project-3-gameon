@@ -10,7 +10,8 @@ function editNav() {
 /** DOM Elements **/
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const modalCloseBtn = document.querySelector("#close-modal-btn")
+const modalCloseBtn = document.querySelectorAll(".close-modal-btn");
+const modalCloseBtnSubmitted = document.querySelector(".close-modal-btn-submitted");
 const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("#form-signup");
 
@@ -18,9 +19,9 @@ const form = document.querySelector("#form-signup");
 /****************** Binding events ******************/
 /****************************************************/
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtn.forEach(btn => btn.addEventListener("click", launchModal));
 // close modal event
-modalCloseBtn.addEventListener("click", closeModal);
+modalCloseBtn.forEach(btn => btn.addEventListener("click", closeModal));
 // form submit event
 form.addEventListener("submit", formSubmitCallback);
 
@@ -41,6 +42,7 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
   form.reset();
+  form.classList.remove('submit-success');
   formData.forEach(data => data.dataset.errorVisible = false);
 }
 
@@ -71,10 +73,7 @@ function validateForm(form) {
 
       element.dataset.errorVisible = true;
     });
-    console.log({invalidElements});
   }
-
-  console.log({isFormValid});
 
   return isFormValid;
 }
@@ -90,5 +89,6 @@ function formSubmitCallback(e) {
 
   if (formDataValidation) {
     const formData = new FormData(targetForm);
+    targetForm.classList.add('submit-success');
   }
 }

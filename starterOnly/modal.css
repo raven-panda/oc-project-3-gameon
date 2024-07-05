@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url('./DM_Sans/DMSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url('./DM_Sans/DMSans-Medium.ttf');
+}
+
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -173,10 +187,14 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-.content {
-  margin: 5% auto;
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 49px 39px;
+  margin: 15px auto;
   width: 100%;
   max-width: 500px;
+  min-height: 850px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -184,12 +202,24 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
 }
 
-.modal-body {
-  padding: 15px 8%;
-  margin: 15px auto;
+.modal-body .success-message,
+#form-signup.submit-success {
+  display: none;
+}
+
+#form-signup.submit-success ~ .success-message {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.success-message h2 {
+  margin: auto 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 2.25rem;
 }
 
 label {

@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    >
   </head>
   <body>
     <header class="topnav" id="myTopnav">
@@ -51,180 +47,186 @@
         </button>
       </div>
 
-      <div class="bground">
-        <div class="content">
-          <button type="button" id="close-modal-btn" class="close">
+      <div class="bground">          
+        <div class="modal-body">
+          <button type="button" id="close-modal-btn-cross" class="close close-modal-btn">
           </button>
-          <div class="modal-body">
-            <form
-              name="reserve"
-              action="#"
-              method="get"
-              id="form-signup"
-              novalidate
-            >
-              <fieldset >
-                <div
-                  class="formData"
-                  data-error="Votre prénom doit faire au moins 2 caractères"
+          <form
+            name="reserve"
+            action="#"
+            method="get"
+            id="form-signup"
+            class="submit-success"
+            novalidate
+          >
+            <fieldset >
+              <div
+                class="formData"
+                data-error="Votre prénom doit faire au moins 2 caractères"
+              >
+                <label for="first">Prénom</label>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="first"
+                  name="first"
+                  minlength="2"
+                  required
                 >
-                  <label for="first">Prénom</label>
-                  <input
-                    class="text-control"
-                    type="text"
-                    id="first"
-                    name="first"
-                    minlength="2"
-                    required
-                  >
-                </div>
-                <div
-                  class="formData"
-                  data-error="Votre nom doit faire au moins 2 caractères"  
+              </div>
+              <div
+                class="formData"
+                data-error="Votre nom doit faire au moins 2 caractères"  
+              >
+                <label for="last">Nom</label>
+                <input
+                  class="text-control"
+                  type="text"
+                  id="last"
+                  name="last"
+                  minlength="2"
+                  required
                 >
-                  <label for="last">Nom</label>
-                  <input
-                    class="text-control"
-                    type="text"
-                    id="last"
-                    name="last"
-                    minlength="2"
-                    required
-                  >
-                </div>
-                <div
-                  class="formData"
+              </div>
+              <div
+                class="formData"
+                data-error="Veuillez remplir ce champs"
+              >
+                <label for="email">E-mail</label>
+                <input
+                  class="text-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  pattern="^[a-z0-9\._%+\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$"
+                  required
+                >
+              </div>
+              <div
+                class="formData">
+                <label for="birthdate">Date de naissance</label>
+                <input
+                  class="text-control"
+                  type="date"
+                  id="birthdate"
+                  name="birthdate"
                   data-error="Veuillez remplir ce champs"
+                  required
                 >
-                  <label for="email">E-mail</label>
-                  <input
-                    class="text-control"
-                    type="email"
-                    id="email"
-                    name="email"
-                    pattern="^[a-z0-9\._%+\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$"
-                    required
-                  >
-                </div>
-                <div
-                  class="formData">
-                  <label for="birthdate">Date de naissance</label>
-                  <input
-                    class="text-control"
-                    type="date"
-                    id="birthdate"
-                    name="birthdate"
-                    data-error="Veuillez remplir ce champs"
-                    required
-                  >
-                </div>
-                <div
-                  class="formData">
-                  <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
-                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
-                </div>
-              </fieldset>
-              <fieldset>
-                <div
-                  class="formData"
-                  data-error="Veuillez séléctionner au moins un tournoi"  
-                >
-                  <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-                  <div class="form-radio">
-                    <input
-                      class="checkbox-input"
-                      type="radio"
-                      id="location1"
-                      name="location"
-                      value="New York"
-                      required
-                    >
-                    <label class="checkbox-label" for="location1">
-                      <span class="checkbox-icon"></span>
-                      New York</label
-                    >
-                    <input
-                      class="checkbox-input"
-                      type="radio"
-                      id="location2"
-                      name="location"
-                      value="San Francisco"
-                    >
-                    <label class="checkbox-label" for="location2">
-                      <span class="checkbox-icon"></span>
-                      San Francisco</label
-                    >
-                    <input
-                      class="checkbox-input"
-                      type="radio"
-                      id="location4"
-                      name="location"
-                      value="Chicago"
-                    >
-                    <label class="checkbox-label" for="location4">
-                      <span class="checkbox-icon"></span>
-                      Chicago</label
-                    >
-                    <input
-                      class="checkbox-input"
-                      type="radio"
-                      id="location5"
-                      name="location"
-                      value="Boston"
-                    >
-                    <label class="checkbox-label" for="location5">
-                      <span class="checkbox-icon"></span>
-                      Boston</label
-                    >
-                    <input
-                      class="checkbox-input"
-                      type="radio"
-                      id="location6"
-                      name="location"
-                      value="Portland"
-                    >
-                    <label class="checkbox-label" for="location6">
-                      <span class="checkbox-icon"></span>
-                      Portland</label
-                    >
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset>
-                <div
-                  class="formData form-checkbox"
-                  data-error="Veuillez accepter les conditions générales d'utilisation"  
-                >
+              </div>
+              <div
+                class="formData">
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div
+                class="formData"
+                data-error="Veuillez séléctionner au moins un tournoi"  
+              >
+                <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+                <div class="form-radio">
                   <input
                     class="checkbox-input"
-                    type="checkbox"
-                    id="checkbox1"
-                    name="checkboxcgu"
+                    type="radio"
+                    id="location1"
+                    name="location"
+                    value="New York"
                     required
                   >
-                  <label class="checkbox2-label" for="checkbox1">
+                  <label class="checkbox-label" for="location1">
                     <span class="checkbox-icon"></span>
-                    J'ai lu et accepté les conditions d'utilisation.
-                  </label>
-                </div>
-                <div
-                  class="formData form-checkbox"
-                  data-error="Veuillez accepter les conditions générales d'utilisation"  
-                >
-                  <input class="checkbox-input" type="checkbox" id="checkbox2" name="checkbox">
-                  <label class="checkbox2-label" for="checkbox2">
+                    New York</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location2"
+                    name="location"
+                    value="San Francisco"
+                  >
+                  <label class="checkbox-label" for="location2">
                     <span class="checkbox-icon"></span>
-                    Je souhaite être prévenu des prochains évènements.
-                  </label>
+                    San Francisco</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location4"
+                    name="location"
+                    value="Chicago"
+                  >
+                  <label class="checkbox-label" for="location4">
+                    <span class="checkbox-icon"></span>
+                    Chicago</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location5"
+                    name="location"
+                    value="Boston"
+                  >
+                  <label class="checkbox-label" for="location5">
+                    <span class="checkbox-icon"></span>
+                    Boston</label
+                  >
+                  <input
+                    class="checkbox-input"
+                    type="radio"
+                    id="location6"
+                    name="location"
+                    value="Portland"
+                  >
+                  <label class="checkbox-label" for="location6">
+                    <span class="checkbox-icon"></span>
+                    Portland</label
+                  >
                 </div>
-              </fieldset>              
-              <input
-                class="button btn-submit"
-                type="submit"
-                value="C'est parti"
+              </div>
+            </fieldset>
+            <fieldset>
+              <div
+                class="formData form-checkbox"
+                data-error="Veuillez accepter les conditions générales d'utilisation"  
               >
-            </form>
-          </div>
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="checkbox1"
+                  name="checkboxcgu"
+                  required
+                >
+                <label class="checkbox2-label" for="checkbox1">
+                  <span class="checkbox-icon"></span>
+                  J'ai lu et accepté les conditions d'utilisation.
+                </label>
+              </div>
+              <div
+                class="formData form-checkbox"
+                data-error="Veuillez accepter les conditions générales d'utilisation"  
+              >
+                <input class="checkbox-input" type="checkbox" id="checkbox2" name="checkbox">
+                <label class="checkbox2-label" for="checkbox2">
+                  <span class="checkbox-icon"></span>
+                  Je souhaite être prévenu des prochains évènements.
+                </label>
+              </div>
+            </fieldset>              
+            <input
+              id="reserve-btn-submit"
+              class="button btn-submit"
+              type="submit"
+              value="C'est parti"
+            >
+          </form>
+          <section class="success-message">
+            <h2>Merci pour votre inscription</h2>
+            <button class="button btn-submit close-modal-btn" type="button">
+              Fermer
+            </button>
+          </section>
         </div>
       </div>
     </main>
