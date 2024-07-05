@@ -59,12 +59,15 @@
           <div class="modal-body">
             <form
               name="reserve"
-              action="index.html"
+              action="#"
               method="get"
-              onsubmit="return validate();"
+              id="form-signup"
+              novalidate
             >
               <div
-                class="formData">
+                class="formData"
+                data-error="Votre prénom doit faire au moins 2 caractères"
+              >
                 <label for="first">Prénom</label>
                 <input
                   class="text-control"
@@ -72,26 +75,35 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 />
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Votre nom doit faire au moins 2 caractères"  
+              >
                 <label for="last">Nom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
+                  required
                 />
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Veuillez remplir ce champs"
+               >
                 <label for="email">E-mail</label>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  pattern="^[a-z0-9\._%+\-]+@[a-z0-9\.\-]+\.[a-z]{2,4}$"
+                  required
                 />
               </div>
               <div
@@ -102,22 +114,27 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  data-error="Veuillez remplir ce champs"
+                  required
                 />
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" required>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData form-radio"
+                data-error="Veuillez séléctionner au moins un tournoi"  
+              >
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
                   name="location"
                   value="New York"
+                  required
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -181,24 +198,30 @@
               </div>
 
               <div
-                class="formData">
+                class="formData form-checkbox"
+                data-error="Veuillez accepter les conditions générales d'utilisation"  
+              >
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
+                  name="checkboxcgu"
                   required
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+              </div>
+              <div
+                class="formData form-checkbox"
+                data-error="Veuillez accepter les conditions générales d'utilisation"  
+              >
+                <input class="checkbox-input" type="checkbox" id="checkbox2" name="checkbox"/>
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
-                <br>
               </div>
               <input
                 class="button btn-submit"
