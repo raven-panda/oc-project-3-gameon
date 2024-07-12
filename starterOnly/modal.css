@@ -16,6 +16,17 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+
+  --background-color-primary: #fe142f;
+  --background-color-secondary: #232323;
+  --background-color-tertiary: #c4c4c4;
+  --background-color-quaternary: #ffffff;
+  --background-color-quinary: #3876ac;
+  --background-color-sextary: #279e7a;
+
+  --color-font-primary: #000000;
+  --color-font-secondary: #ffffff;
+  --color-font-error: #e54858;
 }
 * {
   box-sizing: border-box;
@@ -28,10 +39,9 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
@@ -50,7 +60,8 @@ fieldset {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  margin: 53px 60px 84px;
+  margin-right: 0;
 }
 .header-logo {
     float: left;
@@ -60,8 +71,11 @@ fieldset {
 }
 .topnav a {
   float: left;
+  border-radius: 8px;
   display: block;
-  color: #000000;
+  text-underline-offset: 6px;
+  line-height: 23.44px;
+  color: var(--color-font-primary);
   text-align: center;
   padding: 12px 12px;
   margin: 5px;
@@ -71,15 +85,14 @@ fieldset {
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
+  background-color: var(--background-color-primary);
+  color: var(--color-font-secondary);
 }
 
 .topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
+  background-color: var(--background-color-primary);
+  color: var(--color-font-secondary);
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -123,10 +136,7 @@ main {
   font-size: 130%;
   font-weight: bolder;
   color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
+  margin: 0 60px;
   border-radius: 2rem;
   text-align: justify;
 
@@ -135,18 +145,18 @@ main {
 
 .modal-btn {
   font-size: 145%;
-  background: #fe142f;
+  background: var(--background-color-primary);
   display: flex;
   margin: auto;
   padding: 2em;
-  color: #fff;
+  color: var(--color-font-secondary);
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
 }
 
 .modal-btn:hover {
-  background: #3876ac;
+  background: var(--background-color-quinary);
 }
 
 .footer {
@@ -158,17 +168,17 @@ main {
 /* Modal form */
 
 .button {
-  background: #fe142f;
+  background: var(--background-color-primary);
   margin-top: 0.5em;
   padding: 1em;
-  color: #fff;
+  color: var(--color-font-secondary);
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .button:hover {
-  background: #3876ac;
+  background: var(--background-color-quinary);
 }
 
 .smFont {
@@ -197,11 +207,11 @@ main {
   min-height: 850px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
-  background: #232323;
+  background: var(--background-color-secondary);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  color: #fff;
+  color: var(--color-font-secondary);
 }
 
 .modal-body .success-message,
@@ -231,11 +241,11 @@ label {
 }
 input {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--background-color-tertiary);
   outline: none;
 }
 .text-control {
-  border: 2px solid #ffffff;
+  border: 2px solid var(--background-color-quaternary);
   margin: 0;
   padding: 16px 20px;
   width: 100%;
@@ -245,7 +255,7 @@ input {
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.625rem;
-  color: #e54858;
+  color: var(--color-font-error);
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
@@ -263,7 +273,7 @@ input {
   display: block;
 }
 .formData[data-error-visible="true"] .text-control {
-  border-color: #e54858;
+  border-color: var(--color-font-error);
 }
 .formData .form-radio {
   display: flex;
@@ -284,7 +294,7 @@ input {
   display: flex;
   width: 25px;
   height: 25px;
-  border: 1px solid #279e7a;
+  border: 1px solid var(--background-color-sextary);
   border-radius: 50%;
   text-indent: 29px;
   white-space: nowrap;
@@ -298,7 +308,7 @@ input {
   content: "";
   width: 17px;
   height: 17px;
-  background-color: #279e7a;
+  background-color: var(--background-color-sextary);
   border-radius: 50%;
   transition: 0.3s;
   opacity: 0;
@@ -311,12 +321,12 @@ input {
   opacity: 1;
 }
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-  background: #279e7a;
+  background: var(--background-color-sextary);
 }
 .checkbox2-label .checkbox-icon {
   border-radius: 6px;
   border: 0;
-  background: #c4c4c4;
+  background: var(--background-color-tertiary);
 }
 .checkbox2-label .checkbox-icon::after {
   width: 10px;
@@ -324,8 +334,8 @@ input {
   border-radius: 2px;
   background: transparent;
   border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
+  border-bottom-color: var(--background-color-quaternary);
+  border-left-color: var(--background-color-quaternary);
   transform: rotate(-50deg);
   margin: 0 0 6px 1px;
 }
@@ -349,7 +359,7 @@ input {
   content: " ";
   height: 33px;
   width: 3px;
-  background-color: #fff;
+  background-color: var(--background-color-quaternary);
 }
 .close:before {
   transform: rotate(45deg);
@@ -359,13 +369,13 @@ input {
 }
 .btn-submit,
 .btn-signup {
-  background: #fe142f;
+  background: var(--background-color-primary);
   display: block;
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
-  color: #fff;
+  color: var(--color-font-secondary);
   cursor: pointer;
   border: 0;
 }
@@ -381,7 +391,7 @@ input {
   display: none;
 }
 .select-selected {
-  background-color: #fff;
+  background-color: var(--background-color-quaternary);
 }
 
 /* Style the arrow inside the select element: */
@@ -393,8 +403,8 @@ input {
   width: 11px;
   height: 11px;
   border: 3px solid transparent;
-  border-bottom-color: #f00;
-  border-left-color: #f00;
+  border-bottom-color: var(--background-color-primary);
+  border-left-color: var(--background-color-primary);
   transform: rotate(-48deg);
   border-radius: 5px 0 5px 0;
 }
@@ -407,7 +417,7 @@ input {
 
 .select-items div,
 .select-selected {
-  color: #000;
+  color: var(--color-font-primary);
   padding: 11px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -419,7 +429,7 @@ input {
 /* Style items (options): */
 .select-items {
   position: absolute;
-  background-color: #fff;
+  background-color: var(--background-color-quaternary);
   top: 89%;
   left: 0;
   right: 0;
@@ -441,31 +451,20 @@ input {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: 2fr 3fr;
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 4;
-  background: #232323;
-  color: #fff;
+  background: var(--background-color-secondary);
+  color: var(--color-font-secondary);
   position: relative;
   text-align: left;
   min-width: 424px;
-}
-.hero-content::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #232323;
-  position: absolute;
-  right: -80px;
-  top: 0;
 }
 .hero-content > * {
   position: relative;
@@ -477,7 +476,6 @@ input {
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
@@ -490,17 +488,15 @@ input {
   margin: 0;
   margin-top: 59px;
 }
-.hero-img {
-  grid-column: span 8;
-}
 .hero-img img {
+  object-fit: fill;
   width: 100%;
   height: 100%;
   display: block;
   padding: 0;
 }
 .copyrights {
-  color: #fe142f;
+  color: var(--background-color-primary);
   padding: 0;
   font-size: 1rem;
   margin: 60px 0 30px;
@@ -510,9 +506,7 @@ input {
   display: none;
 }
 footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
+  padding: 0 40px;
 }
 @media screen and (max-width: 800px) {
   .hero-section {
@@ -520,8 +514,8 @@ footer {
     box-shadow: unset;
   }
   .hero-content {
-    background: #fff;
-    color: #000;
+    background: var(--background-color-quaternary);
+    color: var(--color-font-primary);
     padding: 20px;
   }
   .hero-content::after {
