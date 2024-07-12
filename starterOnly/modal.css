@@ -235,6 +235,7 @@ input {
   outline: none;
 }
 .text-control {
+  border: 2px solid #ffffff;
   margin: 0;
   padding: 16px 20px;
   width: 100%;
@@ -262,7 +263,7 @@ input {
   display: block;
 }
 .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
+  border-color: #e54858;
 }
 .formData .form-radio {
   display: flex;

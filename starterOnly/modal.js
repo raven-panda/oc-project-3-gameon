@@ -24,6 +24,8 @@ modalBtn.forEach(btn => btn.addEventListener("click", launchModal));
 modalCloseBtn.forEach(btn => btn.addEventListener("click", closeModal));
 // form submit event
 form.addEventListener("submit", formSubmitCallback);
+// form controls validation events
+formData.forEach(element => element.addEventListener("input", () => validateFormControl(element)));
 
 /***********************************************/
 /****************** Functions ******************/
@@ -57,25 +59,36 @@ function validateForm(form) {
   const isFormValid = form.checkValidity();
 
   if (!isFormValid) {
-    const invalidElements = Array.from(form.elements)
-    .filter(element => !element.checkValidity())
-    .map(element => element.parentElement);
-
-    invalidElements.forEach(element => {
-      const input = element.querySelector('input');
-
-      if (input.value.length === 0)
-        element.dataset.error = "Veuillez remplir ce champs";
-      if (input.type === 'text' && input.validity.tooShort)
-        element.dataset.error = "Veuillez entrer au moins 2 caractères";
-      if (input.type === 'email' && input.validity.patternMismatch)
-        element.dataset.error = "Veuillez entrer une adresse email valide. Ex : john.doe@gmail.com";
-
-      element.dataset.errorVisible = true;
-    });
+    formData.forEach(element => validateFormControl(element));
   }
 
   return isFormValid;
+}
+
+/**
+ * Validates form controls individualy
+ * @param {HTMLInputElement} element - The form control element
+ * @returns {boolean} - True if form data is valid, false otherwise
+ */
+function validateFormControl(element) {
+  const input = element.querySelector('input');
+  console.log({input: input.name, validity: input.validity.valid});
+  if (input.validity.valid) {
+    element.dataset.errorVisible = false;
+  } else {
+    if (input.value.length === 0)
+      element.dataset.error = "Veuillez remplir ce champs";
+    if (input.type === 'text' && input.validity.tooShort)
+      element.dataset.error = "Veuillez entrer au moins 2 caractères";
+
+    /**
+     * @TODO : Add more custom validation messages : disallowed characters, invalid email, etc.
+     */
+    if (input.type === 'email' && input.validity.patternMismatch)
+      element.dataset.error = "Veuillez entrer une adresse email valide. Ex : john.doe@gmail.com";
+
+    element.dataset.errorVisible = true;
+  }
 }
 
 /**
