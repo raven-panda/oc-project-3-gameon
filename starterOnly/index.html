@@ -13,9 +13,7 @@
         <img alt="logo" src="Logo.png" width="250">
       </div>
       <div class="main-navbar">
-        
-        <a href="#" class="active"><span>Accueil</span></a>
-        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#" class="active"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
@@ -40,7 +38,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img">
+          <img src="./bg_img.jpg" width="354" height="329" alt="img">
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
@@ -61,7 +59,7 @@
             <fieldset >
               <div
                 class="formData"
-                data-error="Votre prénom doit faire au moins 2 caractères"
+                data-error="Veuillez remplir ce champs"
               >
                 <label for="first">Prénom</label>
                 <input
@@ -75,7 +73,7 @@
               </div>
               <div
                 class="formData"
-                data-error="Votre nom doit faire au moins 2 caractères"  
+                data-error="Veuillez remplir ce champs"  
               >
                 <label for="last">Nom</label>
                 <input
@@ -102,14 +100,16 @@
                 >
               </div>
               <div
-                class="formData">
+                class="formData"
+                data-error="Vous devez entrer votre date de naissance"  
+              >
                 <label for="birthdate">Date de naissance</label>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                  data-error="Veuillez remplir ce champs"
+                  data-error="Vous devez entrer votre date de naissance"
                   required
                 >
               </div>
@@ -122,7 +122,7 @@
             <fieldset>
               <div
                 class="formData"
-                data-error="Veuillez séléctionner au moins un tournoi"  
+                data-error="Vous devez choisir une option"  
               >
                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                 <div class="form-radio">

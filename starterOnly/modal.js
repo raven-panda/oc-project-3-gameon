@@ -76,8 +76,6 @@ function validateFormControl(element) {
   if (input.validity.valid) {
     element.dataset.errorVisible = false;
   } else {
-    if (input.value.length === 0)
-      element.dataset.error = "Veuillez remplir ce champs";
     if (input.type === 'text' && input.validity.tooShort)
       element.dataset.error = "Veuillez entrer au moins 2 caractères";
 
@@ -86,7 +84,8 @@ function validateFormControl(element) {
      */
     if (input.type === 'email' && input.validity.patternMismatch)
       element.dataset.error = "Veuillez entrer une adresse email valide. Ex : john.doe@gmail.com";
-
+    if (!['date', 'radio', 'checkbox'].includes(input.type) && input.value.length === 0)
+      element.dataset.error = "Veuillez remplir ce champs";
     element.dataset.errorVisible = true;
   }
 }
