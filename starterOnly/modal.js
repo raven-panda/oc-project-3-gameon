@@ -72,7 +72,7 @@ function validateForm(form) {
  */
 function validateFormControl(element) {
   const input = element.querySelector('input');
-  console.log({input: input.name, validity: input.validity.valid});
+
   if (input.validity.valid) {
     element.dataset.errorVisible = false;
   } else {

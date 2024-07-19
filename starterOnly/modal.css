@@ -26,6 +26,7 @@
 
   --color-font-primary: #000000;
   --color-font-secondary: #ffffff;
+  --color-font-tertiary: #ff001b;
   --color-font-error: #e54858;
 }
 * {
@@ -97,40 +98,8 @@ fieldset {
 
 .topnav .icon {
   display: none;
+  color: var(--color-font-tertiary);
 }
-
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -233,11 +202,12 @@ main {
 }
 
 label {
+  display: block;
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 0.875rem;
   font-weight: normal;
-  display: inline-block;
   margin-bottom: 17px;
+  line-height: 1;
 }
 input {
   padding: 8px;
@@ -254,20 +224,21 @@ input {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.625rem;
   color: var(--color-font-error);
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  line-height: 0.3;
+  font-size: 0.625rem;
+  line-height: 0;
+  margin-top: 11px;
   opacity: 0;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 .formData.form-checkbox[data-error]::after {
   display: none;
 }
 .formData[data-error-visible="true"]::after {
   opacity: 1;
+  line-height: 1;
+  margin: 4px 0 5.5px;
 }
 .formData.form-checkbox[data-error-visible="true"]::after {
   display: block;
@@ -455,8 +426,8 @@ input {
   display: grid;
   grid-template-columns: 2fr 3fr;
   overflow: hidden;
-  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  box-shadow: 0px 12px 12px 0px rgba(0, 0, 0, 0.25);
+
 }
 .hero-content {
   padding: 51px 67px;
@@ -472,7 +443,7 @@ input {
 }
 .hero-headline {
   font-size: 6rem;
-  font-weight: normal;
+  font-weight: 500;
   white-space: nowrap;
 }
 .hero-text {
@@ -489,7 +460,7 @@ input {
   margin-top: 59px;
 }
 .hero-img img {
-  object-fit: fill;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   display: block;
@@ -499,14 +470,11 @@ input {
   color: var(--background-color-primary);
   padding: 0;
   font-size: 1rem;
-  margin: 60px 0 30px;
+  margin: 100px 0 60px;
   font-weight: bolder;
 }
 .hero-section > .btn-signup {
   display: none;
-}
-footer {
-  padding: 0 40px;
 }
 @media screen and (max-width: 800px) {
   .hero-section {
@@ -517,6 +485,7 @@ footer {
     background: var(--background-color-quaternary);
     color: var(--color-font-primary);
     padding: 20px;
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -531,6 +500,7 @@ footer {
   .hero-text {
     width: unset;
     font-size: 1.5rem;
+    margin: 24px 0 40px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -538,14 +508,72 @@ footer {
   }
   .hero-section > .btn-signup {
     display: block;
-    margin: 32px auto 10px;
+    margin: 29px auto 0;
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin: 0 0 29px;
+    font-size: 0.625rem;
     text-align: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  /*.topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }*/
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    padding: 0 30px;
+  }
+  main {
+    margin: 0;
+  }
+  .header-logo img {
+    width: 108px;
+  }
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 14px 0;
+  }
+  .hero-content {
+    padding: 0;
+  }
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+  .hero-text {
+    font-size: 0.8125rem;
+  }
+  .copyrights {
+    margin-top: 29px;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .formData label {
+    margin-bottom: 10px;
+  }
+} 
 
 @keyframes modalopen {
   from {
