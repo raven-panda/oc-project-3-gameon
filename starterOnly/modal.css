@@ -569,6 +569,13 @@ input {
 }
 
 @media screen and (max-width: 414px) {
+  .topnav.responsive .main-navbar {
+    top: 40px;
+    right: 0;
+  }
+  .topnav a:not(.icon) {
+    font-size: 1rem;
+  }
   .header-logo img {
     width: 108px;
   }
