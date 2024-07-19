@@ -474,7 +474,25 @@ input {
 .hero-section > .btn-signup {
   display: none;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 0 30px;
+  }
+  main {
+    margin: 0;
+  }
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+  .topnav a {
+    font-size: 1rem;
+  }
+  .header-logo img {
+    width: 180px;
+  }
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -492,7 +510,7 @@ input {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 50px;
     white-space: normal;
   }
   .hero-text {
@@ -510,33 +528,26 @@ input {
     padding: 12px 35px;
   }
   .copyrights {
-    margin: 0 0 29px;
+    margin: 29px 0;
     font-size: 0.625rem;
     text-align: center;
   }
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    padding: 0 30px;
+  .topnav a {
+    display: none;
+    font-size: 1.25rem;
   }
-  main {
-    margin: 0;
-  }
-  .topnav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 0;
-  }
-  .topnav a {display: none;}
   .topnav a.icon {
     display: block;
     padding: 10px;
   }
+  .topnav a.active {
+    text-decoration: none;
+  }
   .topnav a.icon .fa {
     display: block;
-
   }
   .topnav.responsive {
     position: relative;
@@ -569,9 +580,6 @@ input {
   }
   .hero-text {
     font-size: 0.8125rem;
-  }
-  .copyrights {
-    margin-top: 29px;
   }
   .formData label {
     margin-bottom: 10px;
