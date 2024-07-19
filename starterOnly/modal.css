@@ -60,7 +60,6 @@ fieldset {
 }
 
 .topnav {
-  overflow: hidden;
   margin: 53px 60px 84px;
   margin-right: 0;
 }
@@ -79,7 +78,6 @@ fieldset {
   color: var(--color-font-primary);
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
@@ -519,39 +517,49 @@ input {
 }
 
 @media screen and (max-width: 768px) {
-  /*.topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }*/
-}
-
-@media screen and (max-width: 414px) {
   body {
     padding: 0 30px;
   }
   main {
     margin: 0;
   }
-  .header-logo img {
-    width: 108px;
-  }
   .topnav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 14px 0;
+    margin: 30px 0;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    display: block;
+    padding: 10px;
+  }
+  .topnav a.icon .fa {
+    display: block;
+
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .main-navbar {
+    position: absolute;
+    z-index: 50;
+    background-color: #fff;
+    top: 0;
+    right: 38px;
+    border-radius: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .header-logo img {
+    width: 108px;
   }
   .hero-content {
     padding: 0;
@@ -564,11 +572,6 @@ input {
   }
   .copyrights {
     margin-top: 29px;
-  }
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
   }
   .formData label {
     margin-bottom: 10px;
