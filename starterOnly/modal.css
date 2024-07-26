@@ -421,13 +421,13 @@ input {
 }
 .hero-section {
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
+  display: flex;
   overflow: hidden;
   box-shadow: 0px 12px 12px 0px rgba(0, 0, 0, 0.25);
 
 }
 .hero-content {
+  width: 100%;
   padding: 51px 67px;
   background: var(--background-color-secondary);
   color: var(--color-font-secondary);
@@ -456,6 +456,9 @@ input {
   padding: 15px 23px;
   margin: 0;
   margin-top: 59px;
+}
+.hero-img {
+  width: 165%;
 }
 .hero-img img {
   object-fit: cover;
