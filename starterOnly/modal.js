@@ -25,6 +25,9 @@ form.addEventListener("submit", formSubmitCallback);
 // Form controls validation events, triggered every time user types in an input
 formData.forEach(element => element.addEventListener("input", () => validateFormControl(element)));
 
+// Setting the maximum date for the birthdate input to today
+form.querySelector('#birthdate').max = new Date().toISOString().split("T")[0];
+
 /***********************************************/
 /****************** Functions ******************/
 /***********************************************/
