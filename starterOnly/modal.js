@@ -1,35 +1,51 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
 /** DOM Elements **/
+const mobileNavBtn = document.querySelector('#mobile-nav-btn');
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalCloseBtn = document.querySelectorAll(".close-modal-btn");
-const modalCloseBtnSubmitted = document.querySelector(".close-modal-btn-submitted");
 const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("#form-signup");
 
 /****************************************************/
 /****************** Binding events ******************/
 /****************************************************/
-// launch modal event
+
+// Mobile navigation "burger" menu event
+mobileNavBtn.addEventListener('click', editNav);
+
+// Launch modal event
 modalBtn.forEach(btn => btn.addEventListener("click", launchModal));
-// close modal event
+
+// Close modal event
 modalCloseBtn.forEach(btn => btn.addEventListener("click", closeModal));
-// form submit event
+
+// Form submit event
 form.addEventListener("submit", formSubmitCallback);
-// form controls validation events
+
+// Form controls validation events, triggered every time user types in an input
 formData.forEach(element => element.addEventListener("input", () => validateFormControl(element)));
 
 /***********************************************/
 /****************** Functions ******************/
 /***********************************************/
+
+/**
+ * Toggles responsive class for mobile navigation
+ */
+function editNav(e) {
+
+  // Preventing the link from being followed
+  e.preventDefault();
+
+  let headerElement = document.getElementById("myTopnav");
+  
+  if (!headerElement.classList.contains("responsive")) {
+    console.log(headerElement.classList);
+    headerElement.classList.add("responsive");
+  } else {
+    headerElement.classList.remove("responsive");
+  }
+}
 
 /**
  * Launches modal form
@@ -58,6 +74,7 @@ function validateForm(form) {
 
   const isFormValid = form.checkValidity();
 
+  // If form isn't valid, check every form controls to display error messages
   if (!isFormValid) {
     formData.forEach(element => validateFormControl(element));
   }
@@ -74,19 +91,26 @@ function validateFormControl(element) {
   const input = element.querySelector('input');
 
   if (input.validity.valid) {
+
+    // Hidding error message if input is valid
     element.dataset.errorVisible = false;
+
   } else {
+
+    // Checking which validation error occured to write the right message
+
     if (input.type === 'text' && input.validity.tooShort)
       element.dataset.error = "Veuillez entrer au moins 2 caractères";
 
-    /**
-     * @TODO : Add more custom validation messages : disallowed characters, invalid email, etc.
-     */
     if (input.type === 'email' && input.validity.patternMismatch)
       element.dataset.error = "Veuillez entrer une adresse email valide. Ex : john.doe@gmail.com";
+
     if (!['date', 'radio', 'checkbox'].includes(input.type) && input.value.length === 0)
       element.dataset.error = "Veuillez remplir ce champs";
+
+    // Showing the error message
     element.dataset.errorVisible = true;
+    
   }
 }
 
@@ -95,7 +119,10 @@ function validateFormControl(element) {
  * @param {Event} e - The submit event
  */
 function formSubmitCallback(e) {
+
+  // Preventing the form from submitting
   e.preventDefault();
+
   const targetForm = e.target;
   const formDataValidation = validateForm(targetForm);
 
