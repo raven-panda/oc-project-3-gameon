@@ -131,6 +131,7 @@ function formSubmitCallback(e) {
 
   if (formDataValidation) {
     const formData = new FormData(targetForm);
+    console.log({formData});
     targetForm.classList.add('submit-success');
   }
 }
