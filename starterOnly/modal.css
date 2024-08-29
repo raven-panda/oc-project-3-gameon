@@ -34,7 +34,10 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
+
+/************************/
+/***** Common Style *****/
+/************************/
 
 body {
   margin: 0;
@@ -58,6 +61,10 @@ img {
 fieldset {
   border: none;
 }
+
+/*************************/
+/******* Main Page *******/
+/*************************/
 
 .topnav {
   margin: 53px 60px 84px;
